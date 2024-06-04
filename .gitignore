@@ -1,1 +1,8 @@
 build
+.vscode
+.cache
+.github
+tools/
+.editorconfig
+.gitattributes
+.pre-commit-config.yaml

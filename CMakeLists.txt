@@ -8,7 +8,7 @@ project(
 
 set(CMAKE_CXX_STANDARD 17)
 
-# add_subdirectory(src)
+add_subdirectory(src)
 
 # Testing only available if this is the main app
 # Emergency override MODERN_CMAKE_BUILD_TESTING provided as well
