@@ -11,9 +11,10 @@ public:
     explicit MyEvent(uint64_t);
     static std::string const & getEventIdString();
 
-    uint64_t getValue(std::string, uint64_t const &);
+protected:
+    std::any doGetValue(std::string const & key, std::any const &defaultValue) final;
 
-    void setValue(std::string, uint64_t const &);
+    void doSetValue(std::string const &key, std::any const &value) final;
 private:
     static const std::string _eventIdString;
     MyDataContainer _data;

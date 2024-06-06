@@ -1,5 +1,6 @@
 #include "TestEventConsumer.hpp"
 #include "MyEvent.hpp"
+#include <cstdint>
 #include <iostream>
 #include <memory>
 
@@ -31,8 +32,7 @@ void TestEventConsumer::doConsume()
 
         for (auto & event : *ret.events)
         {
-            auto myEvent = std::static_pointer_cast<MyEvent>(event);
-            std::cout << "Got event type: " << event->getId() << ", data:" << myEvent->getValue("value", 0) << std::endl;
+            std::cout << "Got event type: " << event->getId() << ", data:" << event->getValue<uint64_t>("value", 0) << std::endl;
         }
     }
 }

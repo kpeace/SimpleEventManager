@@ -1,12 +1,13 @@
 #include "MyEvent.hpp"
 #include "SimpleEventManager/Event.hpp"
+#include <any>
 #include <cstdint>
 #include <memory>
 
 const std::string MyEvent::_eventIdString = "Event0";
 
 
-uint64_t MyEvent::getValue(std::string key, uint64_t const &defaultValue)
+std::any MyEvent::doGetValue(std::string const & key, std::any const &defaultValue)
 {
     if (_data.find(key) != _data.end()) {
         return _data.at(key);
@@ -15,9 +16,9 @@ uint64_t MyEvent::getValue(std::string key, uint64_t const &defaultValue)
     return defaultValue;
 }
 
-void MyEvent::setValue(std::string key, uint64_t const &value)
+void MyEvent::doSetValue(std::string const & key, std::any const &value)
 {
-    _data[key] = value;
+    _data[key] = std::any_cast<uint64_t>(value);
 }
 
 MyEvent::MyEvent(uint64_t data)

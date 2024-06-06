@@ -11,8 +11,6 @@ This Event Manager was designed to not have an opinion about any of the two. Hen
 
 This does mean that the user of this Event Manager needs to implement the thread model itself. Some might think that this makes this Event Manager **not** simple. Then again, when you want to mix and match different thread models, it's much simpler with this Event Manager.
 
-The message type is not quite there. A *set* and *get* interface is prefable.
-
 ## Building
 
 Currently tested only with clang 17.0.6 but this is very straight forward C++17 code, so it should compile on any compiler.
